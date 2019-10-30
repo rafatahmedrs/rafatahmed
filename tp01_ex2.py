@@ -27,19 +27,22 @@ chips_paprika: float
 barre_chocolat: float
 Bonbons: float
 ice_Tea: float
-
+limonade: float
+re_demande: bool
+prix_produit = float
 ###Initialisation des variables
-entre_monaie = 0
-entre_monaie = 4.90
-
+entre_monaie = (0)
 sandwich_au_poulet = 4.90
 chips_paprika = 2.50
 barre_chocolat = 2.00
-Bonbons_à = 3.30
+Bonbons = 3.30
 ice_Tea = 2.20
 limonade = 1.90
+re_demande = False
+prix_produit = 0
+rendu = 0
 ###Séquence d'opération
-
+"""Affichage des produits"""
 print("Bienvenue ! Voici notre sélection de produit :")
 print("----------------------------------------------")
 print("1. Sandwich au poulet")
@@ -48,39 +51,67 @@ print("3. Barre chocolatée")
 print("4. Bonbons")
 print("5. Ice Tea")
 print("6. Limonade")
-entre_monaie = int(input("Veuillez introduire votre monnaie : "))
-produit_choisi = int(input("Veuillez sélectionner un produit : "))
 
-if produit_choisi == 1:
-    if entre_monaie >= sandwich_au_poulet :
-        print("Monnaie à rendre : " +str(entre_monaie - sandwich_au_poulet))
-    else:
-         print("monnaie insufisante")
-if produit_choisi == 2:
-    if entre_monaie >= chips_paprika:
-        print("Monnaie à rendre : ",(entre_monaie-chips_paprika))
-    else:
-        print("monnaie insufisante")
-if produit_choisi >= 3:
-    if entre_monaie > barre_chocolat:
-        print(entre_monaie-barre_chocolat)
-    else:
-        print("monnaie insufisante")
-if produit_choisi >=4 :
-    if entre_monaie > Bonbons:
-        print(entre_monaie-Bonbons)
-    else:
-        print("monnaie insufisante")
-if produit_choisi >= 5 :
-    if entre_monaie >ice_Tea:
-        print(entre_monaie-ice_Tea)
-    else:
-        print("monnaie insufisante")
-if produit_choisi >= 6 :
-    if entre_monaie > limonade:
-        print(entre_monaie-limonade)
-    else:
-        print("monnaie insufiante")
+#Demande de choisir le produit
+produit_choisi: int = int(input("Veuillez sélectionner un produit et votre offre promotionnelle : "))
+#Demande de choisir le prix
+entre_monaie = float(input("Veuillez introduire votre monnaie : "))
+
+#Calcule de prix
+#Poulet
+
+## Enter no valabale
+
+
+
+while produit_choisi <1 and prix_produit > 6:
+      print("Le produit sélectionné n'existe pas")
+
+produit_choisi: int = int(input("Veuillez sélectionner un produit et votre offre promotionnelle : "))
+
+
+    if produit_choisi == 1 and entre_monaie > sandwich_au_poulet :
+            prix_produit = sandwich_au_poulet - entre_monaie
+            rendu = entre_monaie - Sandwich_au_poulet
+
+
+# Chips
+
+    if produit_choisi == 2 and entre_monaie > chips_paprika:
+        prix_produit = chips_paprika
+        rendu = entre_monaie - prix_produit
+
+#Calcule de prix
+#Cohco
+
+    if produit_choisi == 3 and entre_monaie > barre_chocolat:
+        prix_produit = barre_chocolat
+        rendu = entre_monaie - prix_produit
+
+#Calcule de prix
+#Bonbon
+    if produit_choisi == 4 and entre_monaie > Bonbons:
+        prix_produit = barre_chocolat
+        rendu = entre_monaie - prix_produit
+
+#Calcule de prix
+ #Ice_Tea
+    if produit_choisi == 5 and entre_monaie > ice_Tea:
+        prix_produit = ice_Tea
+        rendu = entre_monaie - prix_produit
+    if produit_choisi == 5 and entre_monaie < barre_chocolat:
+
+
+#Calcule de prix
+#Limo
+    if produit_choisi == 6 and entre_monaie > limonade:
+       prix_produit = limonade
+       rendu = entre_monaie - prix_produit
+
+#Calcule de prix
+#barre
+ while entre_monaie < prix_produit:
+    print("")
 
 
 
